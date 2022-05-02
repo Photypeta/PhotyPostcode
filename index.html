@@ -37,18 +37,17 @@
       new daum.Postcode({
         oncomplete: function(data) {
           var jibunAddress = ""
+          var buildingName = ""
           if (data.jibunAddress != "") {
             jibunAddress = data.jibunAddress
-          } 
-          var buildingName = ""
-          if (data.buildingName != "") {
+          } if (data.buildingName != "") {
             buildingName = data.buildingName
-          } 
+          }
+
           var postData = {
-              userSelectedType : data.userSelectedType,
               roadAddress : data.roadAddress,
               jibunAddress : jibunAddress,
-              buildingName = buildingName,
+              buildingName : buildingName,
               zonecode : data.zonecode
           };
           window.postMessageToiOS(postData);
